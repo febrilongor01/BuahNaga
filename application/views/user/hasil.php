@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>DAPUR PPK</title>
+	<title>DPT Buah Naga</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
 	<!-- https://fonts.google.com/specimen/Open+Sans -->
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/all.min.css" />
@@ -25,7 +25,7 @@
 		<div class="col-12 text-center">
 			<div class="tm-page-header">
 				<i class="fas fa-4x fa-chart-bar mr-4"></i>
-				<h1 class="d-inline-block text-uppercase">Dapur PPK</h1>
+				<h1 class="d-inline-block text-uppercase">DPT Buah Naga</h1>
 			</div>
 		</div>
 	</div>
@@ -81,8 +81,9 @@
 													$f = json_decode($d, true);
 													$data['nilai']  = max($f);
 													$data['index']  = array_search($data['nilai'], $f);
-													echo $f[$data['index']];
-													?></h2>
+													$nilai = $f[$data['index']];
+													echo persentase($f[$data['index']], $pe['penyakit_utama']);
+													?>%</h2>
 											</header>
 											<p>
 											<div class="tm-company-right-inner">

@@ -152,4 +152,9 @@ class User_con extends CI_Controller
 
         return print_r($alt);
     }
+
+    public function test()
+    {
+        $this->load->view('test');
+    }
 }

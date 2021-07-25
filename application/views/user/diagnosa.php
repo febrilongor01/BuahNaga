@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>DAPUR PPK</title>
+	<title>DPT Buah Naga</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
 	<!-- https://fonts.google.com/specimen/Open+Sans -->
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/all.min.css" />
@@ -25,7 +25,7 @@ http://www.tooplate.com/view/2111-pro-line
 		<div class="col-12 text-center">
 			<div class="tm-page-header">
 				<i class="fas fa-4x fa-chart-bar mr-4"></i>
-				<h1 class="d-inline-block text-uppercase">Dapur PPK</h1>
+				<h1 class="d-inline-block text-uppercase">DPT Buah Naga</h1>
 			</div>
 		</div>
 	</div>
@@ -92,7 +92,7 @@ http://www.tooplate.com/view/2111-pro-line
 					<?php } ?>
 				</table>
 				<p><small>*pastikan gejala yang anda pilih tepat dan sesuai</small></p>
-				<input type="submit" class="btn btn-block btn-info" name="tampil" value="Simpan">
+				<input type="submit" class="btn btn-block btn-info" name="tampil" value="Diagnosa!">
 
 				<?php echo form_close() ?>
 			</section>

@@ -1,5 +1,31 @@
 <?php
 
+function persentase($np, $nama){
+
+	if ($nama=="Busuk Pangkal Batang") {
+		$na = 1.8;
+	}
+	if ($nama=="Busuk Bakteri") {
+		$na = 1.4;
+	}
+	if ($nama=="Fussarium") {
+		$na = 1.8;
+	}
+	if ($nama=="Penyakit Hama Kutu Daun") {
+		$na = 1.4;
+	}
+	if ($nama=="Penyakit Antraknosa") {
+		$na = 2;
+	}
+	if ($nama=="Penyakit Hama Kutu Kebul") {
+		$na = 1;
+	}
+	if ($nama=="Penyakit Hama Tungau") {
+		$na = 1.2;
+	}
+	return round(($np/$na)*100,2);
+}
+
 function pembobot($bp, $gj)
 {
     $akhir[] = '';
@@ -18,19 +44,10 @@ function pembobot($bp, $gj)
                     $akhir[] .= 0.4;
                     break;
                 case 'G04':
-                    $akhir[] .= 0.4;
+                    $akhir[] .= 0.2;
                     break;
-                case 'G08':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G13':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G14':
-                    $akhir[] .= 0.4;
-                    break;
-                case 'G16':
-                    $akhir[] .= 0.4;
+                case 'G05':
+                    $akhir[] .= 0.2;
                     break;
             }
         }
@@ -42,25 +59,19 @@ function pembobot($bp, $gj)
         foreach ($gj as $key) {
             switch ($key) {
                 case 'G01':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G02':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G04':
-                    $akhir[] .= 0.4;
-                    break;
-                case 'G05':
                     $akhir[] .= 0.4;
                     break;
                 case 'G06':
                     $akhir[] .= 0.4;
                     break;
-                case 'G14':
+                case 'G07':
                     $akhir[] .= 0.4;
                     break;
-                case 'G17':
-                    $akhir[] .= 0.6;
+                case 'G08':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G09':
+                    $akhir[] .= 0.2;
                     break;
             }
         }
@@ -71,26 +82,23 @@ function pembobot($bp, $gj)
     if ($bp == '3') {
         foreach ($gj as $key) {
             switch ($key) {
-                case 'G03':
-                    $akhir[] .= 0.4;
-                    break;
-                case 'G04':
-                    $akhir[] .= 0.4;
+                case 'G06':
+                    $akhir[] .= 0.2;
                     break;
                 case 'G07':
-                    $akhir[] .= 0.6;
+                    $akhir[] .= 0.2;
                     break;
                 case 'G08':
                     $akhir[] .= 0.6;
+                    break;
+                case 'G10':
+                    $akhir[] .= 0.4;
                     break;
                 case 'G11':
                     $akhir[] .= 0.2;
                     break;
                 case 'G12':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G16':
-                    $akhir[] .= 0.4;
+                    $akhir[] .= 0.2;
                     break;
             }
         }
@@ -101,29 +109,17 @@ function pembobot($bp, $gj)
     if ($bp == '4') {
         foreach ($gj as $key) {
             switch ($key) {
-                case 'G01':
+                case 'G06':
                     $akhir[] .= 0.4;
                     break;
-                case 'G02':
-                    $akhir[] .= 0.4;
-                    break;
-                case 'G04':
+                case 'G13':
                     $akhir[] .= 0.2;
                     break;
-                case 'G09':
+                case 'G14':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G20':
                     $akhir[] .= 0.2;
-                    break;
-                case 'G10':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G12':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G16':
-                    $akhir[] .= 0.4;
-                    break;
-                case 'G17':
-                    $akhir[] .= 0.4;
                     break;
             }
         }
@@ -134,28 +130,19 @@ function pembobot($bp, $gj)
     if ($bp == '5') {
         foreach ($gj as $key) {
             switch ($key) {
-                case 'G01':
+                case 'G03':
                     $akhir[] .= 0.6;
                     break;
-                case 'G03':
-                    $akhir[] .= 0.4;
-                    break;
-                case 'G04':
-                    $akhir[] .= 0.4;
-                    break;
-                case 'G06':
+                case 'G15':
                     $akhir[] .= 0.2;
-                    break;
-                case 'G09':
-                    $akhir[] .= 0.2;
-                    break;
-                case 'G10':
-                    $akhir[] .= 0.4;
-                    break;
-                case 'G12':
-                    $akhir[] .= 0.4;
                     break;
                 case 'G16':
+                    $akhir[] .= 0.2;
+                    break;
+                case 'G17':
+                    $akhir[] .= 0.6;
+                    break;
+                case 'G18':
                     $akhir[] .= 0.4;
                     break;
             }
@@ -167,25 +154,13 @@ function pembobot($bp, $gj)
     if ($bp == '6') {
         foreach ($gj as $key) {
             switch ($key) {
-                case 'G02':
+                case 'G05':
                     $akhir[] .= 0.4;
-                    break;
-                case 'G04':
-                    $akhir[] .= 0.2;
                     break;
                 case 'G07':
                     $akhir[] .= 0.4;
                     break;
-                case 'G12':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G13':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G14':
-                    $akhir[] .= 0.4;
-                    break;
-                case 'G16':
+                case 'G21':
                     $akhir[] .= 0.2;
                     break;
             }
@@ -197,28 +172,13 @@ function pembobot($bp, $gj)
     if ($bp == '7') {
         foreach ($gj as $key) {
             switch ($key) {
-                case 'G01':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G02':
+                case 'G07':
                     $akhir[] .= 0.4;
                     break;
-                case 'G03':
-                    $akhir[] .= 0.6;
+                case 'G19':
+                    $akhir[] .= 0.2;
                     break;
-                case 'G04':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G08':
-                    $akhir[] .= 0.6;
-                    break;
-                case 'G11':
-                    $akhir[] .= 0.4;
-                    break;
-                case 'G15':
-                    $akhir[] .= 0.8;
-                    break;
-                case 'G17':
+                case 'G22':
                     $akhir[] .= 0.6;
                     break;
             }
