@@ -50,10 +50,20 @@ class User_con extends CI_Controller
             for ($j = 1; $j < 8; $j++) :
                 $bobot = pembobot($j, $checkboxes);
                 $nbobot = nilai_gejala($bobot);
-
                 $idala = "BP" . $j;
                 $nb[$idala] .= $nbobot;
             endfor;
+            print_r($nbobot);
+
+            if (empty($nbobot)){
+                $alt = '';
+                $alt .= '<script>';
+                $alt .= 'alert("Terjadi masalah, silahkan kontek admin");';
+                $alt .= 'window.location.href="' . base_url('diagnose') . '";';
+                $alt .= '</script>';
+
+                return print_r($alt);
+            }
 
             // print_r($idala);
             if (!empty($nbobot)) {
