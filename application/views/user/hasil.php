@@ -35,7 +35,8 @@
 			<div class="row">
 				<div class="col-12">
 					<nav class="navbar navbar-expand-md navbar-light">
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav"
+							aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div class="collapse navbar-collapse" id="tmMainNav">
@@ -48,7 +49,8 @@
 										Penyakit <span class="sr-only">(current)</span></a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link external" href="<?php echo base_url('dlogout') ?>" title="Logout" style="text-transform:capitalize">
+									<a class="nav-link external" href="<?php echo base_url('dlogout') ?>" title="Logout"
+										style="text-transform:capitalize">
 										<?= $this->session->userdata('name'); ?> <i class="fa fa-power-off "></i> </a>
 								</li>
 							</ul>
@@ -66,17 +68,18 @@
 				foreach ($penyakit as $pe) {
 					foreach ($detail as $de) {
 				?>
-						<section class="container tm-company-section" id="company">
-							<div class="row">
-								<div class="col-md-12 ">
-									<div class="tm-company-about">
-										<!-- <div class="tm-company-img-container">
+				<section class="container tm-company-section" id="company">
+					<div class="row">
+						<div class="col-md-12 ">
+							<div class="tm-company-about">
+								<!-- <div class="tm-company-img-container">
 											<img src="<?php echo base_url() ?>assets/img/img-05.jpg" alt="Image" />
 										</div> -->
-										<div class="tm-company-about-text">
-											<header>
-												<h2 class="tm-company-about-header">Anda terkena penyakit <?= $pe['penyakit_utama'] ?> nilainya
-													<?php
+								<div class="tm-company-about-text">
+									<header>
+										<h2 class="tm-company-about-header">Anda terkena penyakit
+											<?= $pe['penyakit_utama'] ?> nilainya
+											<?php
 													$d = $pe['penyakit_lain'];
 													$f = json_decode($d, true);
 													$data['nilai']  = max($f);
@@ -84,43 +87,96 @@
 													$nilai = $f[$data['index']];
 													echo persentase($f[$data['index']], $pe['penyakit_utama']);
 													?>%</h2>
-											</header>
-											<p>
-											<div class="tm-company-right-inner">
-												<ul class="nav nav-tabs" id="tmCompanyTab" role="tablist">
-													<li class="nav-item">
-														<a class="nav-link tm-nav-link-border-right active" id="vision-tab" data-toggle="tab" href="#vision" role="tab" aria-controls="vision" aria-selected="true">Penjelasan</a>
-													</li>
-													<li class="nav-item">
-														<a class="nav-link tm-no-border-right" id="mission-tab" data-toggle="tab" href="#mission" role="tab" aria-controls="mission" aria-selected="false">Pencegahan</a>
-													</li>
-												</ul>
-												<div class="tab-content" id="tmTabContent">
-													<div class="tab-pane fade show active" id="vision" role="tabpanel" aria-labelledby="vision-tab">
-														<p>
-															<?= $de['penjelasan'] ?>
-														</p>
-														<a class="btn btn-block btn-primary" href="<?php echo base_url('diagnose') ?>">Diagnosa Kembali</a>
-													</div>
-													<div class="tab-pane fade" id="mission" role="tabpanel" aria-labelledby="mission-tab">
-														<p>
-															<?= $de['pencegahan'] ?>
-														</p>
-														<a class="btn btn-block btn-primary" href="<?php echo base_url('diagnose') ?>">Diagnosa Kembali</a>
-													</div>
+									</header>
+									<p>
+										<div class="tm-company-right-inner">
+											<ul class="nav nav-tabs" id="tmCompanyTab" role="tablist">
+												<li class="nav-item">
+													<a class="nav-link tm-nav-link-border-right active" id="vision-tab"
+														data-toggle="tab" href="#vision" role="tab"
+														aria-controls="vision" aria-selected="true">Penjelasan</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link tm-no-border-right" id="mission-tab"
+														data-toggle="tab" href="#mission" role="tab"
+														aria-controls="mission" aria-selected="false">Pencegahan</a>
+												</li>
+											</ul>
+											<div class="tab-content" id="tmTabContent">
+												<div class="tab-pane fade show active" id="vision" role="tabpanel"
+													aria-labelledby="vision-tab">
+													<p>
+														<?= $de['penjelasan'] ?>
+													</p>
+													<a class="btn btn-block btn-primary"
+														href="<?php echo base_url('diagnose') ?>">Diagnosa Kembali</a>
+												</div>
+												<div class="tab-pane fade" id="mission" role="tabpanel"
+													aria-labelledby="mission-tab">
+													<p>
+														<?= $de['pencegahan'] ?>
+													</p>
+													<a class="btn btn-block btn-primary"
+														href="<?php echo base_url('diagnose') ?>">Diagnosa Kembali</a>
 												</div>
 											</div>
-											</p>
-											<!-- <p class="mb-4">
+										</div>
+									</p>
+									<p>
+										<div class="tm-company-right-inner">
+											<ul class="nav nav-tabs" id="tmCompanyTab" role="tablist">
+												<li class="nav-item">
+													<a class="nav-link tm-nav-link-border-right active" id="vision-tab"
+														data-toggle="tab" href="#vision" role="tab"
+														aria-controls="vision" aria-selected="true">Penjabaran</a>
+												</li>
+											</ul>
+											<div class="tab-content" id="tmTabContent">
+												<div class="tab-pane fade show active" id="vision" role="tabpanel"
+													aria-labelledby="vision-tab" style="overflow-x:scroll; max-width:65em;">
+													<p>
+														<?php $argj = explode(",", $gejala); $plain = json_decode($penyakit_lain, true); $gjledit = str_replace("G","", $gejala); $argd = explode(",", $gjledit)?>
+														<?php $max = array(); $max = ["1.8", "1.4", "1.8", "1.4", "2", "1", "1.2"];?>
+														Gejala yang di inputkan adalah <?= $gejala ?> dengan total
+														<?= count($argj)?> Gejala
+														<?php print_r($argd)?>
+														<table class="table table-responsive">
+															<tr>
+																<th>BP</th>
+																<?php for($i=1;$i<23;$i++):?>
+																<th>G<?=$i?></th>
+																<?php endfor; ?>
+																<th>Hasil</th>
+															</tr>
+															<?php for($bp=1;$bp<8;$bp++):?>
+															<tr>
+																<td><b><?=$bp?></b></td>
+																<?php for($gj=1;$gj<23;$gj++):?>
+																<td><?= (show_bobot($bp, $gj)!="0")? show_bobot($bp, $gj):"0" ?></td>
+																<?php endfor; ?>
+																<td>
+																	<b>
+																	<?= $plain["BP".$bp];?> / <?= $max[$bp-1]?>
+																	</b>
+																</td>
+															</tr>
+															<?php endfor; ?>
+														</table>
+													</p>
+												</div>
+											</div>
+										</div>
+									</p>
+									<!-- <p class="mb-4">
 												Suspendisse aliquam pulvinar odio sed rhoncus. Cras pretium diam
 												ut metus tristique, a ultricies sapien euismod. Duis dui diam,
 												maximus ac ligula a, accumsan cursus ante.
 											</p>
 											<a href="#" class="btn tm-btn tm-float-right">Read More</a> -->
-										</div>
-									</div>
 								</div>
-								<!-- <div class="col-xl-9 col-lg-4 col-md-12 tm-company-right  ml-lg-auto mr-lg-0">
+							</div>
+						</div>
+						<!-- <div class="col-xl-9 col-lg-4 col-md-12 tm-company-right  ml-lg-auto mr-lg-0">
 									<div class="tm-company-right-inner">
 										<ul class="nav nav-tabs" id="tmCompanyTab" role="tablist">
 											<li class="nav-item">
@@ -152,8 +208,8 @@
 										</div>
 									</div>
 								</div> -->
-							</div>
-						</section>
+					</div>
+				</section>
 				<?php }
 				} ?>
 		</div>
@@ -169,13 +225,16 @@
 					</header>
 					<form action="index.html" class="tm-contact-form" method="POST">
 						<div class="form-group">
-							<input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name" required />
+							<input type="text" id="contact_name" name="contact_name" class="form-control"
+								placeholder="Name" required />
 						</div>
 						<div class="form-group">
-							<input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email" required />
+							<input type="email" id="contact_email" name="contact_email" class="form-control"
+								placeholder="Email" required />
 						</div>
 						<div class="form-group">
-							<textarea rows="5" id="contact_message" name="contact_message" class="form-control" placeholder="Message" required></textarea>
+							<textarea rows="5" id="contact_message" name="contact_message" class="form-control"
+								placeholder="Message" required></textarea>
 						</div>
 						<div class="tm-text-right">
 							<button type="submit" class="btn tm-btn tm-btn-big">
@@ -263,14 +322,14 @@
 		}
 		// Parallax function
 		// https://codepen.io/roborich/pen/wpAsm
-		var background_image_parallax = function($object, multiplier) {
+		var background_image_parallax = function ($object, multiplier) {
 			multiplier = typeof multiplier !== "undefined" ? multiplier : 0.5;
 			multiplier = 1 - multiplier;
 			var $doc = $(document);
 			$object.css({
 				"background-attatchment": "fixed"
 			});
-			$(window).scroll(function() {
+			$(window).scroll(function () {
 				var from_top = $doc.scrollTop(),
 					bg_css = "center " + multiplier * from_top + "px";
 				$object.css({
@@ -278,7 +337,7 @@
 				});
 			});
 		};
-		$(window).scroll(function() {
+		$(window).scroll(function () {
 			if ($(this).scrollTop() > 50) {
 				$(".scrolltop:hidden")
 					.stop(true, true)
@@ -296,7 +355,7 @@
 			}
 		});
 		let videoSec;
-		$(function() {
+		$(function () {
 			if (detectIE()) {
 				alert(
 					"Please use the latest version of Edge, Chrome, or Firefox for best browsing experience."
@@ -307,17 +366,17 @@
 				filter: ":not(.external)",
 				offset: $(".tm-nav-section").outerHeight(),
 				updateHash: true,
-				beforeStart: function() {
+				beforeStart: function () {
 					mainNav.removeClass("show");
 				}
 			});
 			videoSec = $("#tmVideoSection");
 			// Adjust height of video when window is resized
-			$(window).resize(function() {
+			$(window).resize(function () {
 				setVideoHeight();
 			});
 			setVideoHeight();
-			$(window).on("load scroll resize", function() {
+			$(window).on("load scroll resize", function () {
 				var scrolled = $(this).scrollTop();
 				var vidHeight = $("#hero-vid").height();
 				var offset = vidHeight * 0.6;
@@ -335,7 +394,7 @@
 			// Parallax image background
 			background_image_parallax($(".tm-parallax"), 0.4);
 			// Back to top
-			$(".scroll").click(function() {
+			$(".scroll").click(function () {
 				$("html,body").animate({
 						scrollTop: $("#home").offset().top
 					},

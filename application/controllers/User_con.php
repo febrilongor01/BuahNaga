@@ -91,27 +91,7 @@ class User_con extends CI_Controller
                 // print_r($np[0]['penjelasan']);
                 // die;
                 $this->User_model->ingjl($data);
-                // echo '<pre>';
-                // print_r($data);
-                // die;
-                // $id = $this->session->userdata('id');
-                // $data['gjl'] = $this->Admin_model->gjl();
-                // $data['diagnosa'] = $this->User_model->diagnosa($id);
-                // // $data['gejala'] = $this->Admin_model->ingjl('G01');
-                // if ($data['diagnosa'] == true) {
-                //     foreach ($data['diagnosa'] as $d) {
-                //         $a = $d['input_gejala'];
-                //         $data['ex'] = explode(",", $a);
-                //     }
-                // } else {
-                //     $data['ex'] = array('00');
-                //     // var_dump($data['ex']);
-                //     // die;
-                // }
-                // $this->load->view('user/dashboard', $data);
                 $iid = $this->db->insert_id();
-                // print_r($iid);
-                // die;
                 $alt = '';
                 $alt .= '<script>';
                 $alt .= 'window.location.href="' . base_url("User_con/hasil/" . $iid) . '";';
@@ -136,7 +116,9 @@ class User_con extends CI_Controller
             // return $data;
         }
         $data['detail'] = $this->User_model->getdetail($data['index']);
-        // var_dump($data['index']);
+        $data['gejala'] = $this->User_model->getpemeriksaan()->row()->input_gejala;
+        $data['penyakit_lain'] = $this->User_model->getpemeriksaan()->row()->penyakit_lain;
+        // print_r($data['gejala']);
         // die;
         $this->load->view('user/hasil', $data);
     }

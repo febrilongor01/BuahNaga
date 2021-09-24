@@ -20,10 +20,17 @@ class User_model extends CI_Model
         // ->select('nama_penyakit, penjelasan, pencegahan')
         // ->get('tb_penyakit a');
     }
+
     function getdetail($data)
     {
         return $this->db->query("SELECT * FROM tb_detail_penyakit WHERE kode_penyakit='$data'")->result_array();
     }
+
+    function getpemeriksaan()
+    {
+        return $this->db->query("SELECT * FROM tb_pemeriksaan order by id_pemeriksaan desc limit 1");
+    }
+
     function getgjl($b)
     {
         $builder = $this->db->select('tb_gejala.nama_gejala')->where('tb_gejala.kode_gejala', $b)->get("tb_gejala")->row('nama_gejala');

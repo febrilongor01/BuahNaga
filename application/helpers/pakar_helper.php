@@ -1,29 +1,202 @@
 <?php
 
-function persentase($np, $nama){
+function show_bobot($bp, $key)
+{
+    // penyakit ke-1
+    if ($bp == '1') {
 
-	if ($nama=="Busuk Pangkal Batang") {
-		$na = 1.8;
-	}
-	if ($nama=="Busuk Bakteri") {
-		$na = 1.4;
-	}
-	if ($nama=="Fussarium") {
-		$na = 1.8;
-	}
-	if ($nama=="Penyakit Hama Kutu Daun") {
-		$na = 1.4;
-	}
-	if ($nama=="Penyakit Antraknosa") {
-		$na = 2;
-	}
-	if ($nama=="Penyakit Hama Kutu Kebul") {
-		$na = 1;
-	}
-	if ($nama=="Penyakit Hama Tungau") {
-		$na = 1.2;
-	}
-	return round(($np/$na)*100,2);
+        switch (intval($key)) {
+            case '1':
+                return 0.6;
+                break;
+            case '2':
+                return 0.4;
+                break;
+            case '3':
+                return 0.4;
+                break;
+            case '4':
+                return 0.2;
+                break;
+            case '5':
+                return 0.2;
+                break;
+            default:
+                return 0;
+                break;
+        }
+
+    }
+
+    // penyakit ke-2
+    if ($bp == '2') {
+
+        switch ($key) {
+            case '1':
+                return 0.4;
+                break;
+            case '6':
+                return 0.4;
+                break;
+            case '7':
+                return 0.4;
+                break;
+            case '8':
+                return 0.4;
+                break;
+            case '9':
+                return 0.2;
+                break;
+            default:
+                return 0;
+                break;
+        }
+    }
+
+    // penyakit ke-3
+    if ($bp == '3') {
+
+        switch ($key) {
+            case '6':
+                return 0.2;
+                break;
+            case '7':
+                return 0.2;
+                break;
+            case '8':
+                return 0.6;
+                break;
+            case '10':
+                return 0.4;
+                break;
+            case '11':
+                return 0.2;
+                break;
+            case '12':
+                return 0.2;
+                break;
+            default:
+                return 0;
+                break;
+        }
+
+    }
+
+    // Penyakit ke-4
+    if ($bp == '4') {
+
+        switch ($key) {
+            case '6':
+                return 0.4;
+                break;
+            case '13':
+                return 0.2;
+                break;
+            case '14':
+                return 0.4;
+                break;
+            case '20':
+                return 0.2;
+                break;
+            default:
+                return 0;
+                break;
+        }
+
+    }
+
+    // Penyakit ke-5
+    if ($bp == '5') {
+
+        switch ($key) {
+            case '3':
+                return 0.6;
+                break;
+            case '15':
+                return 0.2;
+                break;
+            case '16':
+                return 0.2;
+                break;
+            case '17':
+                return 0.6;
+                break;
+            case '18':
+                return 0.4;
+                break;
+            default:
+                return 0;
+                break;
+        }
+
+    }
+
+    // Penyakit ke-6
+    if ($bp == '6') {
+
+        switch ($key) {
+            case '5':
+                return 0.4;
+                break;
+            case '7':
+                return 0.4;
+                break;
+            case '21':
+                return 0.2;
+                break;
+            default:
+                return 0;
+                break;
+        }
+
+    }
+
+    // Penyakit ke-7
+    if ($bp == '7') {
+
+        switch ($key) {
+            case '7':
+                return 0.4;
+                break;
+            case '19':
+                return 0.2;
+                break;
+            case '22':
+                return 0.6;
+                break;
+            default:
+                return 0;
+                break;
+
+        }
+    }
+}
+
+function persentase($np, $nama)
+{
+
+    if ($nama == "Busuk Pangkal Batang") {
+        $na = 1.8;
+    }
+    if ($nama == "Busuk Bakteri") {
+        $na = 1.4;
+    }
+    if ($nama == "Fussarium") {
+        $na = 1.8;
+    }
+    if ($nama == "Penyakit Hama Kutu Daun") {
+        $na = 1.4;
+    }
+    if ($nama == "Penyakit Antraknosa") {
+        $na = 2;
+    }
+    if ($nama == "Penyakit Hama Kutu Kebul") {
+        $na = 1;
+    }
+    if ($nama == "Penyakit Hama Tungau") {
+        $na = 1.2;
+    }
+    return round(($np / $na) * 100, 2);
 }
 
 function pembobot($bp, $gj)
@@ -197,15 +370,15 @@ function nilai_gejala($bobot)
 
 function besar($nilai)
 {
-    $data['nilai']  = max($nilai);
-    $data['index']  = array_search($data['nilai'], $nilai);
+    $data['nilai'] = max($nilai);
+    $data['index'] = array_search($data['nilai'], $nilai);
     return $data;
 }
 function dua($nilai)
 {
-    $data['nilai']  = array_slice($nilai, 1);
-    $data['a']  = max($data['nilai']);
-    $data['index']  = array_search($data['a'], $nilai);
+    $data['nilai'] = array_slice($nilai, 1);
+    $data['a'] = max($data['nilai']);
+    $data['index'] = array_search($data['a'], $nilai);
     return $data;
 }
 
