@@ -124,55 +124,66 @@
 									</p>
 									<p>
 										<div class="tm-company-right-inner col-12">
-											<ul class="nav nav-tabs" >
+											<ul class="nav nav-tabs">
 												<li class="nav-item">
 													<a class="nav-link tm-nav-link-border-right active" id="vision-tab"
 														data-toggle="tab" href="#vision" role="tab"
-														aria-controls="vision" aria-selected="true"><h4>Penjabaran</h4></a>
+														aria-controls="vision" aria-selected="true">
+														<h4>Penjabaran</h4>
+													</a>
 												</li>
 											</ul>
 											<div class="tab-content" id="tmTabContent">
-											<div class="tab-pane fade show active" id="vision" role="tabpanel"
+												<div class="tab-pane fade show active" id="vision" role="tabpanel"
 													aria-labelledby="vision-tab">
-													<p><?php $argj = explode(",", $gejala); $plain = json_decode($penyakit_lain, true);?>
+													<h5>
+														<?php $argj = explode(",", $gejala); $plain = json_decode($penyakit_lain, true);?>
 														<?php $max = array(); $max = ["1.8", "1.4", "1.8", "1.4", "2", "1", "1.2"];?>
 														Gejala yang di inputkan adalah <?= $gejala ?> dengan total
-														<?= count($argj)?> Gejala</p>
+														<?= count($argj)?> Gejala
+													</h5>
 												</div>
-												<div  id="vision" role="tabpanel"
-													aria-labelledby="vision-tab">
+												<div id="vision" role="tabpanel" aria-labelledby="vision-tab">
 													<p>
-														
-													<?php for($bp=1;$bp<8;$bp++):?>
+
+														<?php for($bp=1;$bp<8;$bp++):?>
 														<div class="card card-light">
 															<div class="card-header">
-															Tahap  <?=$bp." - "?><b><?=nama_penyakit($bp)?></b>
+																<?php $gjl = show_gejala($bp);?>
+																Tahap <?=$bp." - "?><b><?=nama_penyakit($bp)?></b>
 															</div>
 															<div class="card-body">
 																<table class="table table-striped">
 																	<tr>
 																		<th>No</th>
 																		<th>Gejala</th>
+																		<th>Kasus</th>
+																		<th>Similiarity</th>
 																		<th>Bobot</th>
 																	</tr>
-																	<?php $no=1; foreach($argj as $ar):?>
-																		<tr>
-																			<td><?=$no?></td>
-																			<td><?=$ar?></td>
-																			<td><?=show_bobot($bp, $ar)?></td>
-																		</tr>
-																		<?php $no++; endforeach;?>
-																		<tr>
-																		<th colspan="2" class="text-right">Total</th>
-																		<th><?= $plain["BP".$bp];?> / <?= $max[$bp-1]?></th>
-																		</tr>
+																	<?php $no=1; foreach($gjl as $ar):?>
+																	<tr>
+																		<td><?=$no?></td>
+																		<td><?=$ar?></td>
+																		<td> <?= (in_array($ar, $argj )? $ar : "") ?>
+																		</td>
+																		<td><?=(in_array($ar, $argj )? '1' : '0')?></td>
+																		<td><?=(in_array($ar, $argj )? show_bobot($bp, $ar) : '0')?>
+																		</td>
+																	</tr>
+																	<?php $no++; endforeach;?>
+																	<tr>
+																		<th colspan="4" class="text-center">Total</th>
+																		<th><?= $plain["BP".$bp];?> / <?= $max[$bp-1]?>
+																		</th>
+																	</tr>
 																</table>
 															</div>
 														</div>
 														<br>
-														
+
 														<?php endfor; ?>
-														
+
 													</p>
 												</div>
 											</div>

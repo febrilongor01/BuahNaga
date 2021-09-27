@@ -1,5 +1,29 @@
 <?php
 
+function show_gejala($bp){
+
+    if ($bp == '1') {
+        return ['G01', 'G02', 'G03', 'G04', 'G05'];
+    }
+    if ($bp == '2') {
+        return ['G01', 'G06', 'G07', 'G08', 'G09'];
+    }
+    if ($bp == '3') {
+        return ['G06', 'G07', 'G08', 'G10', 'G11', 'G12'];
+    }
+    if ($bp == '4') {
+        return ['G06', 'G13', 'G14', 'G20'];
+    }
+    if ($bp == '5') {
+        return ['G03', 'G15', 'G16', 'G17', 'G18'];
+    }
+    if ($bp == '6') {
+        return ['G05', 'G07', 'G21'];
+    }
+    if ($bp == '7') {
+        return ['G07', 'G19', 'G22'];
+    }
+}
 function show_bobot($bp, $key)
 {
     // penyakit ke-1
