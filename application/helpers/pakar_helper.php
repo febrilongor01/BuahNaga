@@ -5,24 +5,24 @@ function show_bobot($bp, $key)
     // penyakit ke-1
     if ($bp == '1') {
 
-        switch (intval($key)) {
-            case '1':
+        switch ($key) {
+            case 'G01':
                 return 0.6;
                 break;
-            case '2':
+            case 'G02':
                 return 0.4;
                 break;
-            case '3':
+            case 'G03':
                 return 0.4;
                 break;
-            case '4':
+            case 'G04':
                 return 0.2;
                 break;
-            case '5':
+            case 'G05':
                 return 0.2;
                 break;
             default:
-                return 0;
+                return "0";
                 break;
         }
 
@@ -32,23 +32,23 @@ function show_bobot($bp, $key)
     if ($bp == '2') {
 
         switch ($key) {
-            case '1':
+            case 'G01':
                 return 0.4;
                 break;
-            case '6':
+            case 'G06':
                 return 0.4;
                 break;
-            case '7':
+            case 'G07':
                 return 0.4;
                 break;
-            case '8':
+            case 'G08':
                 return 0.4;
                 break;
-            case '9':
+            case 'G09':
                 return 0.2;
                 break;
             default:
-                return 0;
+                return "0";
                 break;
         }
     }
@@ -57,26 +57,26 @@ function show_bobot($bp, $key)
     if ($bp == '3') {
 
         switch ($key) {
-            case '6':
+            case 'G06':
                 return 0.2;
                 break;
-            case '7':
+            case 'G07':
                 return 0.2;
                 break;
-            case '8':
+            case 'G08':
                 return 0.6;
                 break;
-            case '10':
+            case 'G10':
                 return 0.4;
                 break;
-            case '11':
+            case 'G11':
                 return 0.2;
                 break;
-            case '12':
+            case 'G12':
                 return 0.2;
                 break;
             default:
-                return 0;
+                return "0";
                 break;
         }
 
@@ -86,20 +86,20 @@ function show_bobot($bp, $key)
     if ($bp == '4') {
 
         switch ($key) {
-            case '6':
+            case 'G06':
                 return 0.4;
                 break;
-            case '13':
+            case 'G13':
                 return 0.2;
                 break;
-            case '14':
+            case 'G14':
                 return 0.4;
                 break;
-            case '20':
+            case 'G20':
                 return 0.2;
                 break;
             default:
-                return 0;
+                return "0";
                 break;
         }
 
@@ -109,23 +109,23 @@ function show_bobot($bp, $key)
     if ($bp == '5') {
 
         switch ($key) {
-            case '3':
+            case 'G03':
                 return 0.6;
                 break;
-            case '15':
+            case 'G15':
                 return 0.2;
                 break;
-            case '16':
+            case 'G16':
                 return 0.2;
                 break;
-            case '17':
+            case 'G17':
                 return 0.6;
                 break;
-            case '18':
+            case 'G18':
                 return 0.4;
                 break;
             default:
-                return 0;
+                return "0";
                 break;
         }
 
@@ -135,17 +135,17 @@ function show_bobot($bp, $key)
     if ($bp == '6') {
 
         switch ($key) {
-            case '5':
+            case 'G05':
                 return 0.4;
                 break;
-            case '7':
+            case 'G07':
                 return 0.4;
                 break;
-            case '21':
+            case 'G21':
                 return 0.2;
                 break;
             default:
-                return 0;
+                return "0";
                 break;
         }
 
@@ -155,21 +155,48 @@ function show_bobot($bp, $key)
     if ($bp == '7') {
 
         switch ($key) {
-            case '7':
+            case 'G07':
                 return 0.4;
                 break;
-            case '19':
+            case 'G19':
                 return 0.2;
                 break;
-            case '22':
+            case 'G22':
                 return 0.6;
                 break;
             default:
-                return 0;
+                return "0";
                 break;
 
         }
     }
+}
+
+function nama_penyakit($n)
+{
+
+    if ($n == '1') {
+        return "Busuk Pangkal Batang";
+    }
+    if ($n == '2') {
+        return "Busuk Bakteri";
+    }
+    if ($n == '3') {
+        return "Fussarium";
+    }
+    if ($n == '4') {
+        return "Penyakit Hama Kutu Daun";
+    }
+    if ($n == '5') {
+        return "Penyakit Antraknosa";
+    }
+    if ($n == '6') {
+        return "Penyakit Hama Kutu Kebul";
+    }
+    if ($n == '7') {
+        return "Penyakit Hama Tungau";
+    }
+
 }
 
 function persentase($np, $nama)

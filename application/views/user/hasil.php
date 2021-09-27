@@ -123,45 +123,56 @@
 										</div>
 									</p>
 									<p>
-										<div class="tm-company-right-inner">
-											<ul class="nav nav-tabs" id="tmCompanyTab" role="tablist">
+										<div class="tm-company-right-inner col-12">
+											<ul class="nav nav-tabs" >
 												<li class="nav-item">
 													<a class="nav-link tm-nav-link-border-right active" id="vision-tab"
 														data-toggle="tab" href="#vision" role="tab"
-														aria-controls="vision" aria-selected="true">Penjabaran</a>
+														aria-controls="vision" aria-selected="true"><h4>Penjabaran</h4></a>
 												</li>
 											</ul>
 											<div class="tab-content" id="tmTabContent">
-												<div class="tab-pane fade show active" id="vision" role="tabpanel"
-													aria-labelledby="vision-tab" style="overflow-x:scroll; max-width:65em;">
-													<p>
-														<?php $argj = explode(",", $gejala); $plain = json_decode($penyakit_lain, true); $gjledit = str_replace("G","", $gejala); $argd = explode(",", $gjledit)?>
+											<div class="tab-pane fade show active" id="vision" role="tabpanel"
+													aria-labelledby="vision-tab">
+													<p><?php $argj = explode(",", $gejala); $plain = json_decode($penyakit_lain, true);?>
 														<?php $max = array(); $max = ["1.8", "1.4", "1.8", "1.4", "2", "1", "1.2"];?>
 														Gejala yang di inputkan adalah <?= $gejala ?> dengan total
-														<?= count($argj)?> Gejala
-														<?php print_r($argd)?>
-														<table class="table table-responsive">
-															<tr>
-																<th>BP</th>
-																<?php for($i=1;$i<23;$i++):?>
-																<th>G<?=$i?></th>
-																<?php endfor; ?>
-																<th>Hasil</th>
-															</tr>
-															<?php for($bp=1;$bp<8;$bp++):?>
-															<tr>
-																<td><b><?=$bp?></b></td>
-																<?php for($gj=1;$gj<23;$gj++):?>
-																<td><?= (show_bobot($bp, $gj)!="0")? show_bobot($bp, $gj):"0" ?></td>
-																<?php endfor; ?>
-																<td>
-																	<b>
-																	<?= $plain["BP".$bp];?> / <?= $max[$bp-1]?>
-																	</b>
-																</td>
-															</tr>
-															<?php endfor; ?>
-														</table>
+														<?= count($argj)?> Gejala</p>
+												</div>
+												<div  id="vision" role="tabpanel"
+													aria-labelledby="vision-tab">
+													<p>
+														
+													<?php for($bp=1;$bp<8;$bp++):?>
+														<div class="card card-light">
+															<div class="card-header">
+															Tahap  <?=$bp." - "?><b><?=nama_penyakit($bp)?></b>
+															</div>
+															<div class="card-body">
+																<table class="table table-striped">
+																	<tr>
+																		<th>No</th>
+																		<th>Gejala</th>
+																		<th>Bobot</th>
+																	</tr>
+																	<?php $no=1; foreach($argj as $ar):?>
+																		<tr>
+																			<td><?=$no?></td>
+																			<td><?=$ar?></td>
+																			<td><?=show_bobot($bp, $ar)?></td>
+																		</tr>
+																		<?php $no++; endforeach;?>
+																		<tr>
+																		<th colspan="2" class="text-right">Total</th>
+																		<th><?= $plain["BP".$bp];?> / <?= $max[$bp-1]?></th>
+																		</tr>
+																</table>
+															</div>
+														</div>
+														<br>
+														
+														<?php endfor; ?>
+														
 													</p>
 												</div>
 											</div>
