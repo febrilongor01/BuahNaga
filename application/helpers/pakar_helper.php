@@ -120,7 +120,7 @@ function show_bobot($bp, $key)
                 return 0.4;
                 break;
             case 'G20':
-                return 0.2;
+                return 0.4;
                 break;
             default:
                 return "0";
@@ -160,9 +160,6 @@ function show_bobot($bp, $key)
 
         switch ($key) {
             case 'G05':
-                return 0.4;
-                break;
-            case 'G07':
                 return 0.4;
                 break;
             case 'G21':
@@ -242,7 +239,7 @@ function persentase($np, $nama)
         $na = 2;
     }
     if ($nama == "Penyakit Hama Kutu Kebul") {
-        $na = 1;
+        $na = 0.8;
     }
     if ($nama == "Penyakit Hama Tungau") {
         $na = 1.2;

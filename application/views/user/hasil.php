@@ -85,8 +85,15 @@
 													$data['nilai']  = max($f);
 													$data['index']  = array_search($data['nilai'], $f);
 													$nilai = $f[$data['index']];
-													echo persentase($f[$data['index']], $pe['penyakit_utama']);
-													?>%</h2>
+													$bobot2 = json_decode($pe['penyakit_lain'], true);
+													$bobot1 = floatval(current($bobot2));
+													$sml = json_decode($pe['similatiry'], true);
+													$bobot2 = floatval(current($bobot2)) * floatval(current($sml));
+													$persen = round($bobot1 / sqrt($bobot2),2); 
+													$persen = $persen * 100;
+													// print_r($persen);
+													echo " dengan persentase ". $persen ."%";
+													?></h2>
 									</header>
 									<p>
 										<div class="tm-company-right-inner">

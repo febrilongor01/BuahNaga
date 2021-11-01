@@ -50,10 +50,15 @@ class User_con extends CI_Controller
             for ($j = 1; $j < 8; $j++) :
                 $bobot = pembobot($j, $checkboxes);
                 $nbobot = nilai_gejala($bobot);
+                $nbobot2 = pow(nilai_gejala($bobot),2);
                 $idala = "BP" . $j;
                 $nb[$idala] .= $nbobot;
+                $bobot2 = sqrt($nbobot2) * count($bobot);
+                $nbobot = floatval($bobot) / sqrt(floatval($bobot2));
+                $nbobot = round($nbobot,2);
+                $sml[$idala] = count($bobot)-1;
+                print_r($bobot2);
             endfor;
-            print_r($nbobot);
 
             if (empty($nbobot)){
                 $alt = '';
@@ -68,13 +73,14 @@ class User_con extends CI_Controller
             // print_r($idala);
             if (!empty($nbobot)) {
                 arsort($nb, SORT_NUMERIC);
+                arsort($sml, SORT_NUMERIC);
                 // echo implode(',',$nb);
 
                 $terbesar = besar($nb);
                 $dua = dua($nb);
                 $np = namabp($terbesar['index']);
                 $nd = namabp($dua['index']);
-                // print_r($nb);
+                // print_r($nbobot);
                 // die;
 
                 $data = array(
@@ -86,18 +92,19 @@ class User_con extends CI_Controller
                     // "penjelasan" => $np[0]['penjelasan'],
                     // "pencegahan" => $np[0]['pencegahan'],
                     "penyakit_lain" => json_encode($nb),
+                    "similatiry" => json_encode($sml),
                     // "penyakit_lain" =>   $nd[0]['nama_penyakit'],
                 );
-                // print_r($np[0]['penjelasan']);
-                // die;
-                $this->User_model->ingjl($data);
-                $iid = $this->db->insert_id();
-                $alt = '';
-                $alt .= '<script>';
-                $alt .= 'window.location.href="' . base_url("User_con/hasil/" . $iid) . '";';
-                $alt .= '</script>';
+                
+                // $this->User_model->ingjl($data);
+                // $iid = $this->db->insert_id();
+                // print_r($this->db->last_query());
+                // $alt = '';
+                // $alt .= '<script>';
+                // $alt .= 'window.location.href="' . base_url("User_con/hasil/" . $iid) . '";';
+                // $alt .= '</script>';
 
-                return print_r($alt);
+                // return print_r($alt);
             }
         }
     }
