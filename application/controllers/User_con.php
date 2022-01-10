@@ -96,15 +96,15 @@ class User_con extends CI_Controller
                     // "penyakit_lain" =>   $nd[0]['nama_penyakit'],
                 );
                 
-                // $this->User_model->ingjl($data);
-                // $iid = $this->db->insert_id();
-                // print_r($this->db->last_query());
-                // $alt = '';
-                // $alt .= '<script>';
-                // $alt .= 'window.location.href="' . base_url("User_con/hasil/" . $iid) . '";';
-                // $alt .= '</script>';
+                $this->User_model->ingjl($data);
+                $iid = $this->db->insert_id();
+                print_r($this->db->last_query());
+                $alt = '';
+                $alt .= '<script>';
+                $alt .= 'window.location.href="' . base_url("User_con/hasil/" . $iid) . '";';
+                $alt .= '</script>';
 
-                // return print_r($alt);
+                return print_r($alt);
             }
         }
     }

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Jul 2021 pada 17.36
--- Versi server: 10.3.16-MariaDB
--- Versi PHP: 7.4.1
+-- Generation Time: Jan 10, 2022 at 06:04 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `buah_naga`
+-- Database: `db_buahnaga`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detail_penyakit`
+-- Table structure for table `tb_detail_penyakit`
 --
 
 CREATE TABLE `tb_detail_penyakit` (
@@ -36,22 +35,22 @@ CREATE TABLE `tb_detail_penyakit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_detail_penyakit`
+-- Dumping data for table `tb_detail_penyakit`
 --
 
 INSERT INTO `tb_detail_penyakit` (`id_detail_penyakit`, `kode_penyakit`, `penjelasan`, `pencegahan`) VALUES
-(1, 'BP1', 'Gastritis merupakan peradangan yang mengenai mukosa lambung. Peradangan ini dapat menyebabkan pembengkakan lambung sampai terlepasnya epitel mukosa suferpisial yang menjadi penyebab terpenting dalam gangguan saluran pencernaan', 'Pemeliharaan yang efisien antara lain  pemupukan tepat\r\ndosis, tepat waktu dan tepat sesuai dengan anjuran.\r\n'),
-(2, 'BP2', 'Dispepsia berasal dari bahasa Yunani, yaitu dys (buruk) dan peptein (pencernaan). Istilah dispepsia mulai gencar dikemukakan sejak akhir tahun 1980- an, yang menggambar keluhan atau kumpulan gejala (sindrom) yang terdiri dari nyeri atau rasa tidak nyaman di epigastrum, mual, muntah, kembung, cepat kenyang, rasa penuh, sendawa, regurgitasi, dan rasa panas yang menjalar di dada. Sindrom atau keluhan ini dapat disebabkan atau didasari oleh berbagai penyakit, termasuk juga didalamnya penyakit yang mengenai lambung atau yang dikenal sebagai penyakit maag ', 'Penggunaan pestisida dengan bahan aktif tembaga hidroksida digunakan untuk\r\nmenegndalikan penyakit inidi Philipina. Aplikasinya dilakukan dengan penyemprotan keseluruh bagian tanaman dan pengocoran pada pangkal batang.\r\n'),
-(3, 'BP3', 'Kanker lambung jarang menimbulkan gejala spesifik pada stadium awal. Gejalanya dapat berupa perut kembung atau nyeri ulu hati, dan sering kali hanya dianggap sebagai keluhan sakit maag. Kondisi tersebut membuat kanker lambung sulit untuk didiagnosis secara dini, dan umumnya baru terdiagnosis  setelah  masuk stadium akhir. Hal ini tentunya akan mempengaruhi peluang kesembuhan. Tumor ganas lambung/kanker lambung adalah tumordi lambung yang bersifat ganas. ', 'Pengendalian secara teknis\r\ndilakukan dengan melakukan\r\npergiliran tanaman yang\r\nlebih tahan terhadap serangan\r\ncendawan fusarium\r\noxysporum. Pengolahan\r\nlahan dengan membajak atau\r\nmencangkul. Pemberian\r\nkapur pertanian sebelum\r\npenanaman. Membuat\r\nbedengan dengan tujuan\r\nmenghindari genangan air.\r\n'),
-(4, 'BP4', 'GERD adalah suatu gangguan berupa isi lambung mengalami refluks berulang ke dalam esofagus, menyebabkan gejala dan atau komplikasi yang mengganggu (Monica DS, Widi B 2017). GERD adalah suatu keadaan patologis akibat refluks kandungan lambung ke dalam esofagus dengan berbagai gejala akibat keterlibatan esofagus, faring, laring dan saluran napas. Sedangkan menurut American College of Gastroenterology, GERD is a physical condition in which acid from the stomach flows backward up into the esofagus. Jadi, GERD adalah suatu keadaan patologis di mana cairan asam lambung mengalami refluks sehingga masuk ke dalam esofagus dan menyebabkan gejala.', 'Menjaga kebersihan kebun,\r\nhama kutu daun bersifat polifag\r\nyaitu memiliki banyak\r\ntanaman inang termasuk\r\ngulma atau rumput liar,\r\n'),
-(5, 'BP5', 'Gastroenteritis didefinisikan sebagai peningkatan frekuensi, volume, dan kandungan fluida dari tinja. Propulsi yang cepat dari isi usus melalui hasil usus kecil diare dan dapat menyebabkan defisit volume cairan serius. Penyebab umum adalah infeksi, sindrom malabsorpsi, obat, alergi, dan penyakit sistemik. (Black Joyce, Hawks Jane, 2010) Jadi dapat disimpulkan gastroenteritis adalah buang air besar dengan frekuensi tidak normal dan konsistensi tinja yang lebih lembek atau cair, dengan kandungan air pada feses lebih banyak dari biasanya yaitu lebih dari 200 gram atau 200 ml/24 jam.', 'Pemberian fungisida secara\r\nberkala untuk mencegah\r\nserangan jamur terhadap\r\ntanaman.\r\n'),
-(6, 'BP6', 'Gastroparesis adalah suatu kondisi yang memengaruhi pergerakan spontan otot-otot (motilitas) di perut. Normalnya setelah menelan makanan, otot-otot dalam dinding perut akan menggiling makanan menjadi bentuk yang lebih kecil dan mendorong masuk ke dalam usus halus. Pada gastroparesis, motilitas perut akan melambat atau tidak berfungsi sama sekali, mencegah pengosongan perut yang benar, sehingga menyebabkan pengosongan lambung memakan waktu yang lama. (Barucha AE. 2015)', 'penyemprotan pestisida nabati seperti nimba, tagetes, eceng gondok, atau rumput laut harus dilakukan secara rutin dengan interval 3-4 hari sekali.'),
-(7, 'BP7', 'Tukak Lambung didefinisikan sebagai sebuah kerusakan integritas mukosa lambung   dan/atau   duodenum   yang  menyebabkann            terjadinya   inflamasi  lokal (Valle, 2005). Disebut tukak apabila robekan mukosa berdiameter ? 5 mm kedalaman sampai submukosa dan muskularis mukosa atau secara klinis tukak adalah hilangnya epitel superfisial atau lapisan lebih dalam dengan diameter ? 5 mm yang dapat diamati secara endoskopis atau  radiologis. Robekan  mukosan     < 5 mm disebut erosi dimana nekrosis tidak sampai ke muskularis mukosa dan submukosa. Tukak peptik merujuk kepada penyakit di salur pencernaan bagian atas yang disebabkan oleh asam dan pepsin. Spektum penyakit tukak peptik adalah luas meliputi kerusakan mukosa, eritema, erosi mukosa dan ulkus.', 'menyemprotkan Omite dengan dosis 1-2 gr/ltr air yang dilakukan 2-3 kali seminggu.');
+(1, 'BP1', 'Penyakit busuk batang pada buah naga merupakan salah satu faktor penghambat produksi karena dapat menyebabkan tanaman menjadi tidak produktif, sehingga perlu dilakukan upaya pengendalian. Pada umumnya penyakit busuk batang menyerang pada awal penanaman buah naga. Beberapa cendawan patogen penyebab penyakit busuk batang kuning adalah Bipolaris cactivora, Fusarium proliferatum dan Fusarium Solani. Gejala serangan yang ditemukan cukup bervariasi seperti, busuk batang pada bagian bawah/pangkal batang dengan warna kuning atau coklat, busuk lunak pada pinggir/tepi batang dengan warna coklat dan kuning, busuk lunak pada cabang produktif atau ujung batang, busuk batang dengan bercak kuning dan hitam mirip serangan antraknose. Penyakit busuk batang ini diperparah dengan adanya serangan hama kutu sisik.', 'Melakukan monitoring secara ketat dan pengendalian dilakukan sedini mungkin dengan cara membuang bagian batang yang busuk\nAplikasi Bubur Bordo, dibuat dengan cara mencampurkan CuSO4, kapur dan air dengan perbandingan 1:1:100\nAplikasi fungisida karena busuk batang pada buah naga banyak disebabkan oleh jamur, dengan cara dioleskan pada bagian batang.'),
+(2, 'BP2', 'Gejala seperti tanaman tampak layu, kusam, terdapat lendir putih kekuningan pada tanaman yang mengalami pembusukan. \nPenyebab: penyakit ini disebabkan oleh bakteri Pseudomonas sp. ', 'Dengan mencabut tanaman yang sakit, kemudian pada lubang tanam diberi Basamid dengan dosis 0,5-1 gram dalam bentuk serbuk kemudian pada lubang tanam tersebut ditanam bibit baru.'),
+(3, 'BP3', 'Jamur Fusarium oxysporium Schl. Jamur ini menyerang karena tanah atau media tanamnya tidak bisa membuang air dengan lancar.\nGejala: cabang tanaman berkerut, layu, dan busuk berwarna coklat. ', 'Dengan menyemprotkan Benlate T 20 WP atau Derosal 60 WP dengan dosis 2g/liter air dalam seminggu 1-2 kali penyemprotan pada bagian batang dan cabang yang terserang penyakit.'),
+(4, 'BP4', 'Adanya sisik yang terletak pada kelopak bunga dan buah adalah salah satu tanda bahwa buah naga sudah terkena kutu daun.\n\nBiasanya lama kelamaan akan menjadi kuning sehingga menyebabkan buah semakin mengecit dan kering serta menjadikan hama lain datang seperti semut. Hama ini dapat menular ke buah naga lainnya maka harus di basmi dengan cepat.', 'Cara pengendalian dapat dilakukan dengan melakukan penyemprotan pestisida nabati 3 -4 hari sekali, seperti nimba, tagetes, eceng gondok, atau rumput laut.\n\nSedang untuk pemulihan anda bisa menggunakan nutrisi tanaman organik, baik melalui akar, dengan cara dikocor, maupun melalui tubuh tanaman, dengan cara disemprot.'),
+(5, 'BP5', 'Penyakit antraknosa pada buah naga disebabkan oleh jamur Colletotrichum sp. Gejala Antraknosa dapat dilihat dengan adanya bercak cokelat kehitaman yang biasanya berbentuk bulat agak cekung.', 'Pengendalian alami dapat dilakukan dengan memusnahkan sumber penyakit dengan membuang buah yang sudah terserang dengan cara dibakar.\n\nSedangkan jika terserang banyak, maka dapat dilakukan penyemprotan fungisida dengan bahan aktif azoksistrobin, propineb, dimetomorf, tembaga hidroksida, kaptan, metil tiofanat, klorotalonil, benomil, mankozeb, dan metalaksil.'),
+(6, 'BP6', 'Serangan kutu kebul pada tanaman buah naga dapat menimbulkan bercak nekrotik akibat rusaknya sel-sel dan jaringan tanaman pada batang atau cabang yang terserang. Selain kerusakan pada tanaman, kutu kebul juga hama yang berbahaya karena berperan sebagai vektor penular virus tanaman.', 'Untuk menguatkan kondisi tanaman agar mampu bertahan dari inveksi hama yang ditularkan, maka lakukan penyemprotan dengan nutrisi organik secara rutin dan interval 7hari sekali.\n\nSelain itu, untuk mengurangi populasi hama anda bisa lakukan pemasangan alat perangkap yellow trap sebanyak 40 buah/ha. Pengendalian hayati dapat dilakukan dengan memanfaatkan musuh alami kutu kebul, seperti: kumbang predator Menochilus sexmaculatus dan parasitoid Encarcia formosa.'),
+(7, 'BP7', 'Tungau memiliki ukuran tubuh sangat kecil dengan bentuk menyerupai laba-laba dan bersifat polyfag, yaitu menyerang hampir segala jenis tanaman.\n\nTungau menyerang dengan cara menghisap cairan batang dan cabang tanaman buah naga. Akibat hama ini dapat menimbulkan permukaan kulit batang dan cabang muncul bintik-bintik kuning atau cokelat. Sedangkan pada serangan yang berat dapat menyebabkan tanaman buah naga tumbuh tidak normal.', 'Cara pengendalian hama tungau dapat dilakukan dengan cara penyemprotan pestisida nabati 3-4 hari sekali, seperti nimba, tagetes, eceng gondok, atau rumput laut.\n\nSedangkan untuk pemulihan bisa anda lakukan dengan cara memberikan nutrisi tanaman organik, baik melalui akar, dengan cara dikocor, maupun melalui tubuh tanaman, dengan cara disemprot. Secara kimia dilakukan penyemprotan Omite dengan dosis 1-2 gr/ltr air yang dilakukan 2-3 kali seminggu.');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_gejala`
+-- Table structure for table `tb_gejala`
 --
 
 CREATE TABLE `tb_gejala` (
@@ -62,7 +61,7 @@ CREATE TABLE `tb_gejala` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_gejala`
+-- Dumping data for table `tb_gejala`
 --
 
 INSERT INTO `tb_gejala` (`id`, `kode_gejala`, `nama_gejala`, `kode_penyakit`) VALUES
@@ -92,7 +91,7 @@ INSERT INTO `tb_gejala` (`id`, `kode_gejala`, `nama_gejala`, `kode_penyakit`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pemeriksaan`
+-- Table structure for table `tb_pemeriksaan`
 --
 
 CREATE TABLE `tb_pemeriksaan` (
@@ -102,20 +101,36 @@ CREATE TABLE `tb_pemeriksaan` (
   `input_gejala` varchar(50) NOT NULL,
   `penyakit_utama` varchar(50) NOT NULL,
   `penyakit_lain` varchar(100) NOT NULL,
+  `similatiry` text DEFAULT NULL,
   `tgl_periksa` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_pemeriksaan`
+-- Dumping data for table `tb_pemeriksaan`
 --
 
-INSERT INTO `tb_pemeriksaan` (`id_pemeriksaan`, `id_user`, `nama_pasien`, `input_gejala`, `penyakit_utama`, `penyakit_lain`, `tgl_periksa`) VALUES
-(13, 2, 'Sari', 'G01,G05,G07,G09', 'Busuk Bakteri', '{\"BP2\":\"1\",\"BP5\":\"0.8\",\"BP1\":\"0.6\",\"BP3\":\"0.6\",\"BP4\":\"0.6\",\"BP7\":\"0.6\",\"BP6\":\"0.4\"}', '2021-07-23 22:30:58');
+INSERT INTO `tb_pemeriksaan` (`id_pemeriksaan`, `id_user`, `nama_pasien`, `input_gejala`, `penyakit_utama`, `penyakit_lain`, `similatiry`, `tgl_periksa`) VALUES
+(13, 2, 'Sari', 'G01,G05,G07,G09', 'Busuk Bakteri', '{\"BP2\":\"1\",\"BP5\":\"0.8\",\"BP1\":\"0.6\",\"BP3\":\"0.6\",\"BP4\":\"0.6\",\"BP7\":\"0.6\",\"BP6\":\"0.4\"}', NULL, '2021-07-23 22:30:58'),
+(14, 2, 'siti', 'G01,G02,G03,G06,G07,G08', 'Busuk Bakteri', '{\"BP2\":\"1.6\",\"BP1\":\"1.4\",\"BP3\":\"1\",\"BP5\":\"0.6\",\"BP4\":\"0.4\",\"BP6\":\"0.4\",\"BP7\":\"0.4\"}', NULL, '2021-09-27 11:10:59'),
+(15, 2, 'siti', 'G01,G02,G03,G05,G07', 'Busuk Pangkal Batang', '{\"BP1\":\"1.6\",\"BP2\":\"0.8\",\"BP6\":\"0.8\",\"BP5\":\"0.6\",\"BP7\":\"0.4\",\"BP3\":\"0.2\",\"BP4\":\"0\"}', NULL, '2021-09-27 11:11:15'),
+(16, 2, 'Giyanto', 'G07,G10,G12,G14,G17,G19', 'Fussarium', '{\"BP3\":\"0.8\",\"BP5\":\"0.6\",\"BP7\":\"0.6\",\"BP2\":\"0.4\",\"BP4\":\"0.4\",\"BP6\":\"0.4\",\"BP1\":\"0\"}', NULL, '2021-10-26 16:21:45'),
+(17, 2, '', 'G02,G04,G05,G07,G09', 'Busuk Pangkal Batang', '{\"BP1\":\"0.8\",\"BP6\":\"0.8\",\"BP2\":\"0.6\",\"BP7\":\"0.4\",\"BP3\":\"0.2\",\"BP4\":\"0\",\"BP5\":\"0\"}', NULL, '2021-10-26 23:09:37'),
+(18, 2, '', 'G01,G03,G05,G07,G09', 'Busuk Pangkal Batang', '{\"BP1\":\"1.2\",\"BP2\":\"1\",\"BP6\":\"0.8\",\"BP5\":\"0.6\",\"BP7\":\"0.4\",\"BP3\":\"0.2\",\"BP4\":\"0\"}', NULL, '2021-10-26 23:12:17'),
+(19, 2, 'Ryan', 'G01,G03,G05,G07,G09', 'Busuk Pangkal Batang', '{\"BP1\":\"1.2\",\"BP2\":\"1\",\"BP6\":\"0.8\",\"BP5\":\"0.6\",\"BP7\":\"0.4\",\"BP3\":\"0.2\",\"BP4\":\"0\"}', NULL, '2021-10-26 23:14:13'),
+(20, 2, 'Ryan', 'G01,G03,G07,G08,G18', 'Busuk Bakteri', '{\"BP2\":\"1.2\",\"BP1\":\"1\",\"BP5\":\"1\",\"BP3\":\"0.8\",\"BP6\":\"0.4\",\"BP7\":\"0.4\",\"BP4\":\"0\"}', NULL, '2021-10-26 23:15:29'),
+(21, 2, 'mukidan', 'G01,G03,G07,G08,G18', 'Busuk Bakteri', '{\"BP2\":\"1.2\",\"BP1\":\"1\",\"BP5\":\"1\",\"BP3\":\"0.8\",\"BP6\":\"0.4\",\"BP7\":\"0.4\",\"BP4\":\"0\"}', NULL, '2021-11-01 22:48:45'),
+(22, 2, 'mukidan', 'G01,G03,G07,G08,G18', 'Busuk Bakteri', '{\"BP2\":\"1.2\",\"BP1\":\"1\",\"BP5\":\"1\",\"BP3\":\"0.8\",\"BP6\":\"0.4\",\"BP7\":\"0.4\",\"BP4\":\"0\"}', NULL, '2021-11-01 23:04:55'),
+(23, 2, 'mukidan', 'G01,G03,G07,G08,G18', 'Busuk Bakteri', '{\"BP2\":\"1.2\",\"BP1\":\"1\",\"BP5\":\"1\",\"BP3\":\"0.8\",\"BP6\":\"0.4\",\"BP7\":\"0.4\",\"BP4\":\"0\"}', NULL, '2021-11-01 23:08:43'),
+(24, 2, 'mukidan', 'G01,G03,G07,G08,G18', 'Busuk Bakteri', '{\"BP2\":\"1.2\",\"BP1\":\"1\",\"BP5\":\"1\",\"BP3\":\"0.8\",\"BP6\":\"0.4\",\"BP7\":\"0.4\",\"BP4\":\"0\"}', NULL, '2021-11-01 23:14:06'),
+(31, 2, 'mukidan', 'G01,G03,G07,G08,G18', 'Busuk Bakteri', '{\"BP2\":\"1.2\",\"BP1\":\"1\",\"BP5\":\"1\",\"BP3\":\"0.8\",\"BP6\":\"0.4\",\"BP7\":\"0.4\",\"BP4\":\"0\"}', '{\"BP2\":3,\"BP1\":2,\"BP3\":2,\"BP5\":2,\"BP6\":1,\"BP7\":1,\"BP4\":0}', '2021-11-01 23:28:57'),
+(32, 2, 'mukidan', 'G01,G03,G07,G08,G18', 'Busuk Bakteri', '{\"BP2\":\"1.2\",\"BP1\":\"1\",\"BP5\":\"1\",\"BP3\":\"0.8\",\"BP6\":\"0.4\",\"BP7\":\"0.4\",\"BP4\":\"0\"}', '{\"BP2\":3,\"BP1\":2,\"BP3\":2,\"BP5\":2,\"BP6\":1,\"BP7\":1,\"BP4\":0}', '2021-11-01 23:38:27'),
+(33, 2, 'mukidan', 'G01,G03,G07,G08,G18', 'Busuk Bakteri', '{\"BP2\":\"1.2\",\"BP1\":\"1\",\"BP5\":\"1\",\"BP3\":\"0.8\",\"BP6\":\"0.4\",\"BP7\":\"0.4\",\"BP4\":\"0\"}', '{\"BP2\":3,\"BP1\":2,\"BP3\":2,\"BP5\":2,\"BP6\":1,\"BP7\":1,\"BP4\":0}', '2021-11-01 23:46:11'),
+(34, 2, 'Siti', 'G01,G03,G07,G19,G21', 'Busuk Pangkal Batang', '{\"BP1\":\"1\",\"BP2\":\"0.8\",\"BP5\":\"0.6\",\"BP6\":\"0.6\",\"BP7\":\"0.6\",\"BP3\":\"0.2\",\"BP4\":\"0\"}', '{\"BP1\":2,\"BP2\":2,\"BP6\":2,\"BP7\":2,\"BP3\":1,\"BP5\":1,\"BP4\":0}', '2022-01-10 11:52:27');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_penyakit`
+-- Table structure for table `tb_penyakit`
 --
 
 CREATE TABLE `tb_penyakit` (
@@ -125,7 +140,7 @@ CREATE TABLE `tb_penyakit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_penyakit`
+-- Dumping data for table `tb_penyakit`
 --
 
 INSERT INTO `tb_penyakit` (`id`, `kode_penyakit`, `nama_penyakit`) VALUES
@@ -140,7 +155,7 @@ INSERT INTO `tb_penyakit` (`id`, `kode_penyakit`, `nama_penyakit`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_user`
+-- Table structure for table `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -153,7 +168,7 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_user`
+-- Dumping data for table `tb_user`
 --
 
 INSERT INTO `tb_user` (`id`, `level`, `nama`, `pass`, `alamat`, `hasil_diagnosa`) VALUES
@@ -167,65 +182,65 @@ INSERT INTO `tb_user` (`id`, `level`, `nama`, `pass`, `alamat`, `hasil_diagnosa`
 --
 
 --
--- Indeks untuk tabel `tb_detail_penyakit`
+-- Indexes for table `tb_detail_penyakit`
 --
 ALTER TABLE `tb_detail_penyakit`
   ADD PRIMARY KEY (`id_detail_penyakit`);
 
 --
--- Indeks untuk tabel `tb_gejala`
+-- Indexes for table `tb_gejala`
 --
 ALTER TABLE `tb_gejala`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_pemeriksaan`
+-- Indexes for table `tb_pemeriksaan`
 --
 ALTER TABLE `tb_pemeriksaan`
   ADD PRIMARY KEY (`id_pemeriksaan`);
 
 --
--- Indeks untuk tabel `tb_penyakit`
+-- Indexes for table `tb_penyakit`
 --
 ALTER TABLE `tb_penyakit`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_user`
+-- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tb_detail_penyakit`
+-- AUTO_INCREMENT for table `tb_detail_penyakit`
 --
 ALTER TABLE `tb_detail_penyakit`
   MODIFY `id_detail_penyakit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_gejala`
+-- AUTO_INCREMENT for table `tb_gejala`
 --
 ALTER TABLE `tb_gejala`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pemeriksaan`
+-- AUTO_INCREMENT for table `tb_pemeriksaan`
 --
 ALTER TABLE `tb_pemeriksaan`
-  MODIFY `id_pemeriksaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_pemeriksaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_penyakit`
+-- AUTO_INCREMENT for table `tb_penyakit`
 --
 ALTER TABLE `tb_penyakit`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_user`
+-- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
