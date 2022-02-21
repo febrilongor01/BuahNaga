@@ -44,20 +44,45 @@ class User_con extends CI_Controller
             $tgl = date('Y-m-d H:i:s');
             $checkboxes = $this->input->post('check_list');
             $gjl = implode(",", $checkboxes);
-            $BP1 = '';
             $nb = array();
             $nbmax = array();
             for ($j = 1; $j < 8; $j++) :
                 $bobot = pembobot($j, $checkboxes);
-                $nbobot = nilai_gejala($bobot);
-                $nbobot2 = pow(nilai_gejala($bobot),2);
+                unset($bobot[0]);
+                $bobot = empty($bobot)?$bobot=['1'=>'0']:$bobot;
+                $nbobot = array_sum($bobot);
+
+                $gjbp2      = show_gejala($j);
+                $gjinput2   = $checkboxes;
+                $gj2 = array_unique( array_merge($gjbp2, $gjinput2));
+                usort($gj2, function ($gjbp2, $gjinput2) {
+                    return $gjbp2 <=> $gjinput2;
+                });
+                $bobot2 = pembobot_similarity($j, $gj2);
+                unset($bobot2[0]);
+                $bobot2 = empty($bobot2)?$bobot2=['1'=>'0']:$bobot2;
+                $bobot22 = array();
+                foreach ($bobot2 as $k) {
+                    $bobot22[] .= $k * $k;
+                }
+                $bobot222 = array_sum($bobot22);
+                $similarity = count(array_intersect($gjbp2,$gjinput2));
+
+                $nbobot2 = floatval($bobot222) * floatval($similarity);
+
+                $final = round($nbobot / sqrt($nbobot2),2);
+                // echo "<pre> Perhitungan BP".$j."<br>";
+                // print_r($bobot222 . "*". $similarity."=".$nbobot2);
+                // echo "<br>" ;
+                // print_r($nbobot."/&radic;".$nbobot2."=".$final);
+                
+
+
                 $idala = "BP" . $j;
-                $nb[$idala] .= $nbobot;
-                $bobot2 = sqrt($nbobot2) * count($bobot);
-                $nbobot = floatval($bobot) / sqrt(floatval($bobot2));
-                $nbobot = round($nbobot,2);
-                $sml[$idala] = count($bobot)-1;
-                print_r($bobot2);
+                $nb[$idala] ='';
+                $nb[$idala] .= is_nan($final)?"0":$final;
+                $bbt[$idala] = $nb[$idala];
+                
             endfor;
 
             if (empty($nbobot)){
@@ -73,13 +98,15 @@ class User_con extends CI_Controller
             // print_r($idala);
             if (!empty($nbobot)) {
                 arsort($nb, SORT_NUMERIC);
-                arsort($sml, SORT_NUMERIC);
+                // arsort($sml, SORT_NUMERIC);
                 // echo implode(',',$nb);
 
                 $terbesar = besar($nb);
                 $dua = dua($nb);
                 $np = namabp($terbesar['index']);
                 $nd = namabp($dua['index']);
+                echo "<pre>";   
+                print_r($bbt);
                 // print_r($nbobot);
                 // die;
 
@@ -92,7 +119,7 @@ class User_con extends CI_Controller
                     // "penjelasan" => $np[0]['penjelasan'],
                     // "pencegahan" => $np[0]['pencegahan'],
                     "penyakit_lain" => json_encode($nb),
-                    "similatiry" => json_encode($sml),
+                    // "bobot_bp" => json_encode($bbt),
                     // "penyakit_lain" =>   $nd[0]['nama_penyakit'],
                 );
                 
@@ -125,6 +152,7 @@ class User_con extends CI_Controller
         $data['detail'] = $this->User_model->getdetail($data['index']);
         $data['gejala'] = $this->User_model->getpemeriksaan()->row()->input_gejala;
         $data['penyakit_lain'] = $this->User_model->getpemeriksaan()->row()->penyakit_lain;
+        $data['input_gejala'] = $this->User_model->getpemeriksaan()->row()->input_gejala;
         // print_r($data['gejala']);
         // die;
         $this->load->view('user/hasil', $data);

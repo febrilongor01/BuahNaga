@@ -82,15 +82,15 @@
 											<?php
 													$d = $pe['penyakit_lain'];
 													$f = json_decode($d, true);
-													$data['nilai']  = max($f);
-													$data['index']  = array_search($data['nilai'], $f);
-													$nilai = $f[$data['index']];
-													$bobot2 = json_decode($pe['penyakit_lain'], true);
-													$bobot1 = floatval(current($bobot2));
-													$sml = json_decode($pe['similatiry'], true);
-													$bobot2 = floatval(current($bobot2)) * floatval(current($sml));
-													$persen = round($bobot1 / sqrt($bobot2),2); 
-													$persen = $persen * 100;
+													// $data['nilai']  = max($f);
+													// $data['index']  = array_search($data['nilai'], $f);
+													// $nilai = $f[$data['index']];
+													// $bobot2 = json_decode($pe['penyakit_lain'], true);
+													// $bobot1 = floatval(current($bobot2));
+													// $sml = json_decode($pe['similatiry'], true);
+													// $bobot2 = floatval(current($bobot2)) * floatval(current($sml));
+													// $persen = round($bobot1 / sqrt($bobot2),2); 
+													$persen = reset($f) * 100;
 													// print_r($persen);
 													echo " dengan persentase ". $persen ."%";
 													?></h2>
@@ -159,6 +159,7 @@
 																<?php $gjl = show_gejala($bp);?>
 																Tahap <?=$bp." - "?><b><?=nama_penyakit($bp)?></b>
 															</div>
+
 															<div class="card-body">
 																<table class="table table-striped">
 																	<tr>
@@ -168,20 +169,27 @@
 																		<th>Similiarity</th>
 																		<th>Bobot</th>
 																	</tr>
-																	<?php $no=1; foreach($gjl as $ar):?>
+																	<?php
+																		$all=array_unique( array_merge($argj, $gjl));
+																		usort($all, function ($argj, $gjl) {
+																			return $argj <=> $gjl;
+																		});
+																		$longest=count($all); 
+																		// print_r($all);
+																		$no=1; for($i=0; $i<$longest; $i++):
+																	?>
 																	<tr>
 																		<td><?=$no?></td>
-																		<td><?=$ar?></td>
-																		<td> <?= (in_array($ar, $argj )? $ar : "") ?>
-																		</td>
-																		<td><?=(in_array($ar, $argj )? '1' : '0')?></td>
-																		<td><?=(in_array($ar, $argj )? show_bobot($bp, $ar) : '0')?>
+																		<td><?=(in_array($all[$i], $gjl )? $all[$i] : "")?></td>
+																		<td> <?= (in_array($all[$i], $argj )? $all[$i] : "")?></td>
+																		<td> <?= (in_array($all[$i], $gjl)?(in_array($all[$i], $argj )? 1 : 0):0)?></td>
+																		<td> <?= (in_array($all[$i], $argj )? show_bobot($bp, $all[$i]) : 0)?></td>
 																		</td>
 																	</tr>
-																	<?php $no++; endforeach;?>
+																	<?php $no++; endfor;?>
 																	<tr>
-																		<th colspan="4" class="text-center">Total</th>
-																		<th><?= $plain["BP".$bp];?> / <?= $max[$bp-1]?>
+																		<th colspan="4" class="text-center">Persentase</th>
+																		<th><?= $plain["BP".$bp]*100;?>%
 																		</th>
 																	</tr>
 																</table>
@@ -245,7 +253,7 @@
 	</div>
 	<hr>
 	<!-- Contact -->
-	<section class="container tm-contact-section" id="contact">
+	<!-- <section class="container tm-contact-section" id="contact">
 		<div class="row">
 			<div class="col-xl-5 col-lg-6 col-md-12 tm-contact-left">
 				<div class="tm-contact-form-container ml-auto mr-0">
@@ -286,7 +294,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<footer class="container tm-footer">
 		<div class="row tm-footer-row">
 			<p class="col-md-10 col-sm-12 mb-0">

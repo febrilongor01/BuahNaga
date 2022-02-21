@@ -119,7 +119,7 @@ http://www.tooplate.com/view/2111-pro-line
 	</div>
 	<hr>
 	<!-- Contact -->
-	<section class="container tm-contact-section" id="contact">
+	<!-- <section class="container tm-contact-section" id="contact">
 		<div class="row">
 			<div class="col-xl-5 col-lg-6 col-md-12 tm-contact-left">
 				<div class="tm-contact-form-container ml-auto mr-0">
@@ -160,7 +160,7 @@ http://www.tooplate.com/view/2111-pro-line
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<footer class="container tm-footer">
 		<div class="row tm-footer-row">
 			<p class="col-md-10 col-sm-12 mb-0">

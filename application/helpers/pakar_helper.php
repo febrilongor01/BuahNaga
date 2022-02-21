@@ -1,4 +1,12 @@
 <?php
+function show_input($idx){
+    $ci = &get_instance();
+    $nama = $ci->db->where('id_pemeriksaan', $idx)
+        ->select('input_gejala')
+        ->get('tb_pemeriksaan a');
+
+    return $nama->result_array();
+}
 
 function show_gejala($bp){
 
@@ -9,7 +17,7 @@ function show_gejala($bp){
         return ['G01', 'G06', 'G07', 'G08', 'G09'];
     }
     if ($bp == '3') {
-        return ['G06', 'G07', 'G08', 'G10', 'G11', 'G12'];
+        return ['G01','G06', 'G07', 'G08', 'G10', 'G11', 'G12'];
     }
     if ($bp == '4') {
         return ['G06', 'G13', 'G14', 'G20'];
@@ -24,6 +32,7 @@ function show_gejala($bp){
         return ['G07', 'G19', 'G22'];
     }
 }
+
 function show_bobot($bp, $key)
 {
     // penyakit ke-1
@@ -246,6 +255,192 @@ function persentase($np, $nama)
     }
     return round(($np / $na) * 100, 2);
 }
+function pembobot_similarity($bp, $gj)
+{
+    $akhir[] = '';
+
+    // penyakit ke-1
+    if ($bp == '1') {
+        foreach ($gj as $key) {
+            switch ($key) {
+                case 'G01':
+                    $akhir[] .= 0.6;
+                    break;
+                case 'G02':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G03':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G04':
+                    $akhir[] .= 0.2;
+                    break;
+                case 'G05':
+                    $akhir[] .= 0.2;
+                    break;
+                default:
+                    $akhir[] .= 0.4;
+                    break;
+            }
+        }
+        return $akhir;
+    }
+
+    // penyakit ke-2
+    if ($bp == '2') {
+        foreach ($gj as $key) {
+            switch ($key) {
+                case 'G01':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G06':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G07':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G08':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G09':
+                    $akhir[] .= 0.2;
+                    break;
+                default:
+                    $akhir[] .= 0.4;
+                    break;                    
+            }
+        }
+        return $akhir;
+    }
+
+    // penyakit ke-3
+    if ($bp == '3') {
+        foreach ($gj as $key) {
+            switch ($key) {
+                case 'G01':
+                    $akhir[] .= 0.6;
+                    break;
+                case 'G06':
+                    $akhir[] .= 0.2;
+                    break;
+                case 'G07':
+                    $akhir[] .= 0.2;
+                    break;
+                case 'G08':
+                    $akhir[] .= 0.6;
+                    break;
+                case 'G10':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G11':
+                    $akhir[] .= 0.2;
+                    break;
+                case 'G12':
+                    $akhir[] .= 0.2;
+                    break;
+                default:
+                    $akhir[] .= 0.4;
+                    break;
+            }
+        }
+        return $akhir;
+    }
+
+    // Penyakit ke-4
+    if ($bp == '4') {
+        foreach ($gj as $key) {
+            switch ($key) {
+                case 'G06':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G13':
+                    $akhir[] .= 0.2;
+                    break;
+                case 'G14':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G20':
+                    $akhir[] .= 0.2;
+                    break;
+                default:
+                    $akhir[] .= 0.4;
+                    break;
+            }
+        }
+        return $akhir;
+    }
+
+    // Penyakit ke-5
+    if ($bp == '5') {
+        foreach ($gj as $key) {
+            switch ($key) {
+                case 'G03':
+                    $akhir[] .= 0.6;
+                    break;
+                case 'G15':
+                    $akhir[] .= 0.2;
+                    break;
+                case 'G16':
+                    $akhir[] .= 0.2;
+                    break;
+                case 'G17':
+                    $akhir[] .= 0.6;
+                    break;
+                case 'G18':
+                    $akhir[] .= 0.4;
+                    break;
+                default:
+                    $akhir[] .= 0.4;
+                    break;
+            }
+        }
+        return $akhir;
+    }
+
+    // Penyakit ke-6
+    if ($bp == '6') {
+        foreach ($gj as $key) {
+            switch ($key) {
+                case 'G05':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G07':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G21':
+                    $akhir[] .= 0.2;
+                    break;
+                default:
+                    $akhir[] .= 0.4;
+                    break;
+            }
+        }
+        return $akhir;
+    }
+
+    // Penyakit ke-7
+    if ($bp == '7') {
+        foreach ($gj as $key) {
+            switch ($key) {
+                case 'G07':
+                    $akhir[] .= 0.4;
+                    break;
+                case 'G19':
+                    $akhir[] .= 0.2;
+                    break;
+                case 'G22':
+                    $akhir[] .= 0.6;
+                    break;
+                default:
+                    $akhir[] .= 0.4;
+                    break;
+            }
+        }
+        return $akhir;
+    }
+
+    return $akhir[] = 0;
+}
 
 function pembobot($bp, $gj)
 {
@@ -303,6 +498,9 @@ function pembobot($bp, $gj)
     if ($bp == '3') {
         foreach ($gj as $key) {
             switch ($key) {
+                case 'G01':
+                    $akhir[] .= 0.6;
+                    break;
                 case 'G06':
                     $akhir[] .= 0.2;
                     break;

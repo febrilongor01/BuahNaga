@@ -202,7 +202,7 @@ http://www.tooplate.com/view/2111-pro-line
 			</div>
 		</div>
 	</div>
-
+<!-- 
 	<section class="container tm-company-section" id="company">
 		<div class="row">
 			<div class="col-xl-9 col-lg-8 col-md-12 tm-company-left">
@@ -268,7 +268,7 @@ http://www.tooplate.com/view/2111-pro-line
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<footer class="container tm-footer">
 		<div class="row tm-footer-row">
 			<p class="col-md-10 col-sm-12 mb-0">
